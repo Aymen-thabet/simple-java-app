@@ -6,3 +6,4 @@
 
 ### Run Tests
 ```mvn test```
+ Testing CI now 
