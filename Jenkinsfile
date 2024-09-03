@@ -14,7 +14,7 @@ pipeline{
         stage('push'){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'Password', usernameVariable: 'Username')]) {
+                    withCredentials([usernamePassword(credentialsId: '3dabd894-53a9-4858-97b0-2df256b3a9d4', passwordVariable: 'Password', usernameVariable: 'Username')]) {
                     sh 'docker login --username $Username --password $Password'
                     sh 'docker tag java-app $Username/java-app'
                     sh 'docker push $Username/java-app'
@@ -26,7 +26,7 @@ pipeline{
         stage('deploy'){
             steps{
                 script{
-                    withAWS(credentials: 'aws-cli', region: 'eu-north-1') {
+                    withAWS(credentials: 'EKS-user', region: 'eu-north-1') {
                     sh 'aws eks update-kubeconfig --region eu-north-1 --name eks'
                     sh 'kubectl apply -f ./k8s/deployment.yaml'
                     }
