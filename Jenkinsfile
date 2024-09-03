@@ -27,7 +27,7 @@ pipeline{
             steps{
                 script{
                     withAWS(credentials: 'EKS-user', region: 'eu-north-1') {
-                    sh 'aws eks update-kubeconfig --region eu-north-1 --name eks'
+                    sh 'aws eks update-kubeconfig --region eu-north-1 --name Jenkins-test'
                     sh 'kubectl apply -f ./k8s/deployment.yaml'
                     }
                 }
