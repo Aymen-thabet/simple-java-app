@@ -6,6 +6,5 @@
 
 ### Run Tests
 ```mvn test```
- #Testing CI now 
 
- #testing workflow
+ #testing workflow now
